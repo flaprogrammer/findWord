@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WORDS</title>
+	<script src="combinatorics.js"></script>
+	<style>
+		label {
+			display: inline-block;
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<h2>Find a word</h2>
+	<form id="mainForm">
+		<p>
+			<label for="len">Полная длина слова</label>
+			<input type="number" id="len" required>
+		</p>
+		<p>
+			<label for="letter">Первая буква</label>
+			<input type="text" id="letter" required>
+		</p>
+		<p>
+			<label for="words">Множество возможных букв</label>
+			<input type="text" id="words" required>
+		</p>
+		<p>
+			<input type="submit" value="Посчитать">
+		</p>
+		
+	</form>
+	<div id="content"></div>
+	<script src="script.js"></script>
+</body>
+</html>
