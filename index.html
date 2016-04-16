@@ -17,15 +17,15 @@
 	<form id="mainForm">
 		<p>
 			<label for="len">Полная длина слова</label>
-			<input type="number" id="len" required>
+			<input type="number" id="len" value="6" required>
 		</p>
 		<p>
 			<label for="letter">Первая буква</label>
-			<input type="text" id="letter" required>
+			<input type="text" id="letter" value="к" required>
 		</p>
 		<p>
 			<label for="words">Множество возможных букв</label>
-			<input type="text" id="words" required>
+			<input type="text" id="words" value="урзгчьчмунщеафпттт" required>
 		</p>
 		<p>
 			<input type="submit" value="Посчитать">
@@ -33,6 +33,9 @@
 		
 	</form>
 	<div id="content"></div>
-	<script src="script.js" async defer></script>
+	<script src="fast.min.js"></script>
+	<script src="underscore-min.js"></script>
+	<script src="db.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>
