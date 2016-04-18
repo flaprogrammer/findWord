@@ -15,7 +15,6 @@ function hasWord(word, letters) {
 	return true;
 }
 
-
 function contains(word, let_arr) {
 	for (var i = let_arr.length - 1; i >= 0; i--) {
 		if(word.indexOf(let_arr[i]) != -1) return true;
@@ -62,33 +61,6 @@ function handleData(words, letter, len) {
 	});
 	addWord("finished, found "+found.length+" words");
 	addWord("time is "+(Date.now()-start)+"ms<br>");
-	//generateWords(letter, len-1, words);
-}
-
-
-
-function generateWords(firstLetter, len, letters) {
-	var w;
-	var si;
-	var cmb2;
-	var cmb = Combinatorics.combination(letters, len);
-	console.log(cmb.toArray().length);
-	var i = 0;
-	while(a = cmb.next()) {
-		cmb2 = Combinatorics.permutation(a);
-		while(b = cmb2.next()) {
-			w = b.join('');
-			if(findWord(firstLetter+w)) {
-				if(found.indexOf(firstLetter+w)==-1) {
-					console.log(firstLetter+w);
-					found.push(firstLetter+w);
-					addWord(firstLetter+w);
-				}
-			}
-		}
-	}
-	addWord("finished, found "+found.length+" words<br>");
-	addWord(Date.now()-start);
 }
 
 function addWord(word) {
