@@ -3,6 +3,18 @@ var found = [];
 var start = 0;
 var content = document.getElementById('content');
 
+function hasWord(word, letters) {
+	word = word.split('');
+	for(var i=0; i<word.length; i++) {
+		if(letters.indexOf(word[i]) != -1) {
+			letters.splice(letters.indexOf(word[i]), 1);
+		} else {
+			return false;
+		}
+	}
+	return true;
+}
+
 
 function contains(word, let_arr) {
 	for (var i = let_arr.length - 1; i >= 0; i--) {
@@ -41,16 +53,18 @@ document.getElementById('mainForm').addEventListener('submit', function(e) {
 function handleData(words, letter, len) {
 	start = Date.now();
 	db2 = db.filter(function(el) { return (el.length==len && el.substr(0,1)==letter && contains(el, words)) });
-	generateWords(letter, len-1, words);
+	db2.forEach(function(el) {
+		if(hasWord(el.substr(1), words.slice())) {
+			console.log(el);
+			found.push(el);
+			addWord(el);
+		}
+	});
+	addWord("finished, found "+found.length+" words");
+	addWord("time is "+(Date.now()-start)+"ms<br>");
+	//generateWords(letter, len-1, words);
 }
 
-function findWord(word) {
-	var si = _.sortedIndex(db2, word);
-	if(db2[si]==word) return true;
-	return false;
-	//return fast.indexOf(db2, word) != -1;
-	//return db2.indexOf(word)!=-1;
-}
 
 
 function generateWords(firstLetter, len, letters) {
